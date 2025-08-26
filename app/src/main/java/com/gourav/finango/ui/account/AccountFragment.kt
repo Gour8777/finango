@@ -106,7 +106,7 @@ class AccountFragment : Fragment() {
                 if (doc.exists()) {
                     val name = doc.getString("name").orEmpty()
                     val email = doc.getString("email").orEmpty()
-                    val goal = doc.getString("goals").orEmpty()   // keep your field name
+                    val goal = doc.getString("goal").orEmpty()   // keep your field name
                     val income = doc.getString("income").orEmpty()
                     val nationality = doc.getString("nationality").orEmpty()
 
@@ -150,7 +150,7 @@ class AccountFragment : Fragment() {
 
         val updatedData = mapOf(
             "name" to binding.username.text.toString().trim(),
-            "goals" to binding.usergoal.text.toString().trim(),
+            "goal" to binding.usergoal.text.toString().trim(),
             "income" to binding.ddIncome.text.toString().trim().ifBlank { binding.tvIncome.text.toString() },
             "nationality" to binding.ddNationality.text.toString().trim().ifBlank { binding.tvNationality.text.toString() }
         )
