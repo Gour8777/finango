@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Finango</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="wallet">Wallet</string>
+
+    <string-array name="income_ranges">
+        <item>₹5,000</item>
+        <item>₹10,000</item>
+        <item>₹15,000</item>
+        <item>₹20,000</item>
+        <item>₹25,000</item>
+        <item>₹30,000</item>
+        <item>₹35,000</item>
+        <item>₹40,000</item>
+        <item>₹45,000</item>
+        <item>₹50,000</item>
+        <item>₹55,000</item>
+        <item>₹60,000</item>
+        <item>₹65,000</item>
+        <item>₹70,000</item>
+        <item>₹75,000</item>
+        <item>₹80,000</item>
+        <item>₹85,000</item>
+        <item>₹90,000</item>
+        <item>₹95,000</item>
+        <item>₹1,00,000+</item>
+    </string-array>
+
+    <!-- Nationality options -->
+    <string-array name="nationalities">
+        <item>India</item>
+        <item>United States</item>
+        <item>United Kingdom</item>
+        <item>Canada</item>
+        <item>Australia</item>
+        <item>Germany</item>
+        <item>France</item>
+        <item>Japan</item>
+        <item>China</item>
+        <item>Other</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

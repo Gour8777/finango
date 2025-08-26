@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686002775156",
+    "project_id": "finance-manager-70f25",
+    "storage_bucket": "finance-manager-70f25.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686002775156:android:6dff845b070b25bccd5d21",
+        "android_client_info": {
+          "package_name": "com.gourav.finango"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaeZKDtgoPBiV3dtJGXpmolUYUI0sjGds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
