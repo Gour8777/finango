@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:id="@+id/design_bottom_sheet"
+    app:cardElevation="8dp"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Finango.OnlyTopRounded">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter by date"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="?attr/colorOnSurface"
+            android:paddingBottom="12dp" />
+
+        <RadioGroup
+            android:id="@+id/rgPreset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbLast7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last 7 days"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbLast15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last 15 days"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbLast30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last 30 days"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom range"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/customRangeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnPickRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="Choose date range"
+                android:backgroundTint="?attr/colorPrimary"
+                android:textColor="?attr/colorOnPrimary" />
+
+            <TextView
+                android:id="@+id/tvChosenRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No range selected"
+                android:textColor="?attr/colorOnSurface"
+                android:paddingTop="6dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:paddingTop="16dp">
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:visibility="gone"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="?attr/colorPrimary" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="?attr/colorPrimary" />
+
+            <Button
+                android:id="@+id/btnApply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apply"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="?attr/colorPrimary"
+                android:textColor="?attr/colorOnPrimary" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

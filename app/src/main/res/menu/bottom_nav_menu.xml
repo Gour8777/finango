@@ -15,6 +15,10 @@
         android:id="@+id/navigation_analytics"
         android:icon="@drawable/analytics"
         android:title="Analytics" />
+    <item
+        android:id="@+id/navigation_chatbot"
+        android:icon="@drawable/chatbot"
+        android:title="Chatbot" />
 
     <item
         android:id="@+id/navigation_account"

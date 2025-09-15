@@ -11,5 +11,27 @@
     <color name="themecolor">#3366FF</color>
     <color name="offwhite">#E7E7E7</color>
     <color name="grey">#8A8A8A</color>
+    <color name="income_start">#10B981</color>
+    <color name="income_end">#059669</color>
+    <color name="expense_start">#F43F5E</color>
+    <color name="expense_end">#E11D48</color>
+
+    <color name="chip_icon_pill">#33FFFFFF</color> <!-- 20% white -->
+    <color name="on_color">#FFFFFF</color>
+
+
+
+
+
+    <color name="bg_light">#F0FDFA</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+
+    <!-- Accents -->
+    <color name="income_teal">#14B8A6</color>
+    <color name="expense_cyan">#06B6D4</color>
+    <color name="aqua_primary">#0EA5E9</color>
+
+
 
 </resources>

@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.gourav.finango.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_wallet"
@@ -21,9 +25,21 @@
         android:name="com.gourav.finango.ui.analytics.AnalyticsFragment"
         android:label="Analytics"
         tools:layout="@layout/fragment_analytics" />
+
+    <fragment
+        android:id="@+id/navigation_chatbot"
+        android:name="com.gourav.finango.ui.chatbot.Chatbot"
+        android:label="Chatbot"
+        tools:layout="@layout/fragment_chatbot" />
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.gourav.finango.ui.account.AccountFragment"
         android:label="Account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.gourav.finango.ui.notifications.NotificationsFragment"
+        android:label="Notifications" />
+
+
 </navigation>

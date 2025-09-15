@@ -14,6 +14,25 @@
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
+    <style name="AppDialog.ActivitySized" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <!-- Keep it a dialog, not fullscreen -->
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <!-- Dim the activity behind the dialog -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.45</item>
+
+        <!-- Ensure the dialog window itself is opaque (not see-through) -->
+        <item name="android:windowBackground">?attr/colorSurface</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.Finango.OnlyTopRounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
 
 
 </resources>
