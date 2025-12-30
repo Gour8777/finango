@@ -138,11 +138,35 @@ class LoginScreen : AppCompatActivity() {
                 })
                 finish()
 
-            } catch (e: Exception) {
-                android.util.Log.e("Auth", "Login failed",e)
-                binding.loginProgress.visibility=View.GONE
-                binding.btnLogin.isEnabled=true
+            }catch (e: Exception) {
+
+                binding.loginProgress.visibility = View.GONE
+                binding.btnLogin.isEnabled = true
+
+                val errorMessage = when {
+                    e.message?.contains("password is invalid") == true ->
+                        "Incorrect password. Please try again."
+
+                    e.message?.contains("no user record") == true ->
+                        "No account found with this email."
+
+                    e.message?.contains("disabled") == true ->
+                        "Your account has been disabled. Contact support."
+
+                    e.message?.contains("network") == true ->
+                        "Network error. Please check your internet connection."
+
+                    e.message?.contains("too many") == true ->
+                        "Too many failed attempts. Try again later."
+
+                    else ->
+                        "Login failed. Please check your email & password."
+                }
+
+                toast(errorMessage)
+                android.util.Log.e("Auth", "Login failed", e)
             }
+
         }
     }
 

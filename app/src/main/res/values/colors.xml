@@ -20,7 +20,8 @@
     <color name="on_color">#FFFFFF</color>
 
 
-
+    <color name="income_card">#B5FAB8</color>
+    <color name="expense_card">#F6A1B7</color>
 
 
     <color name="bg_light">#F0FDFA</color>
@@ -31,6 +32,11 @@
     <color name="income_teal">#14B8A6</color>
     <color name="expense_cyan">#06B6D4</color>
     <color name="aqua_primary">#0EA5E9</color>
+    <color name="anomalyHigh">#FFCDD2</color>      <!-- light red -->
+    <color name="anomalyMedium">#FFE0B2</color>   <!-- light orange -->
+    <color name="anomalyLow">#FFF9C4</color>      <!-- light yellow -->
+    <color name="anomalyDefault">#E3F2FD</color>  <!-- light blue -->
+
 
 
 

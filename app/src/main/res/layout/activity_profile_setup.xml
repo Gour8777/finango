@@ -72,13 +72,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Income"
+                android:text="Monthly Budget"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="12dp" />
 
             <Spinner
-                android:id="@+id/spinner_income"
+                android:id="@+id/spinner_budget"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="10dp"

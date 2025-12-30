@@ -1,60 +1,62 @@
 package com.gourav.finango.ui.analytics
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.gourav.finango.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class AnalyticsFragment : Fragment(R.layout.fragment_analytics) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AnalyticsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AnalyticsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tvTitle: TextView
+    private lateinit var btnPrev: ImageButton
+    private lateinit var btnNext: ImageButton
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val pageTitles = listOf(
+        "Income vs Expense",
+        "Spend by Category",
+        "Budget vs Actual",
+        "Cash Flow Summary"
+    )
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewPager = view.findViewById(R.id.viewPagerCharts)
+        tvTitle   = view.findViewById(R.id.tvPagerTitle)
+        btnPrev   = view.findViewById(R.id.btnPrev)
+        btnNext   = view.findViewById(R.id.btnNext)
+
+        viewPager.adapter = ChartsPagerAdapter(this)
+        viewPager.offscreenPageLimit = 1
+
+        tvTitle.text = pageTitles[0]
+        updateArrows(0)
+
+        btnPrev.setOnClickListener {
+            val i = viewPager.currentItem
+            if (i > 0) viewPager.currentItem = i - 1
         }
-    }
+        btnNext.setOnClickListener {
+            val i = viewPager.currentItem
+            if (i < pageTitles.lastIndex) viewPager.currentItem = i + 1
+        }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_analytics, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AnalyticsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AnalyticsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                tvTitle.text = pageTitles[position]
+                updateArrows(position)
             }
+        })
+    }
+
+    private fun updateArrows(position: Int) {
+        btnPrev.isEnabled = position > 0
+        btnNext.isEnabled = position < 3
+        btnPrev.alpha = if (btnPrev.isEnabled) 1f else 0.3f
+        btnNext.alpha = if (btnNext.isEnabled) 1f else 0.3f
     }
 }

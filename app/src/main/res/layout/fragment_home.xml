@@ -276,7 +276,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:paddingTop="10dp">
 
                     <!-- RecyclerView -->
                     <androidx.recyclerview.widget.RecyclerView
@@ -327,35 +327,55 @@
 
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Top Statistics"
+                    android:textColor="@color/black"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/seeallstatistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See All"
+                    android:gravity="end" />
+            </LinearLayout>
     <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <!-- RecyclerView -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvTransactionss"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:overScrollMode="never"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/homeViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"/>
 
-                <LinearLayout
-                    android:id="@+id/emptyStateLayouts"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/btnAddTransactions"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No statistics to show"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+
+
+<!--        <LinearLayout-->
+<!--                    android:id="@+id/emptyStateLayouts"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="No statistics to show"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                </LinearLayout>-->
 
             </LinearLayout>
 

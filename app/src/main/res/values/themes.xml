@@ -2,6 +2,7 @@
     <!-- Base application theme -->
     <style name="Theme.Finango" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
+
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/aqua_primary</item>
         <item name="colorPrimaryVariant">@color/income_teal</item>
@@ -26,6 +27,8 @@
         <!-- Navigation bar (optional, keeps clean look) -->
         <item name="android:navigationBarColor">@color/bg_light</item>
     </style>
+    <style name="ThemeOverlay.Finango.BottomSheet" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog"/>
+
 
 
 </resources>

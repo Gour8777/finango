@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/back"
+                android:layout_alignParentStart="true"
+                app:tint="#333" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Suspicious Transaction"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#111"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+
+        <!-- Card: Amount + Category -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹0"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="#111"/>
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:textSize="16sp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#666"/>
+
+                <TextView
+                    android:id="@+id/tvDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 Oct 2025, 03:42 AM"
+                    android:textSize="14sp"
+                    android:textColor="#999"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- Card: Severity -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSeverity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFF6E5">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvSeverity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High severity alert"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#D84315"/>
+
+                <TextView
+                    android:id="@+id/tvRiskScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Risk Score: 78"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- Card: Reasons -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardReasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Why was this flagged?"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#111"/>
+
+                <TextView
+                    android:id="@+id/tvReasons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• Amount spike in category\n• Unusual time\n• Rapid transactions"
+                    android:textSize="15sp"
+                    android:textColor="#444"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="22dp">
+
+            <Button
+                android:id="@+id/btnYesThisWasMe"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Yes, this was me"
+                android:textStyle="bold"
+                android:backgroundTint="#4CAF50"
+                android:textSize="12sp"
+                android:textColor="#FFF"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnNoNotMe"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="No, I didn't do this"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:backgroundTint="#E53935"
+                android:textColor="#FFF"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

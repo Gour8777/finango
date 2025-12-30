@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/addtransactionToolbar"
+            android:id="@+id/transactiondetailsToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
@@ -46,6 +46,7 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+
 
         <LinearLayout
 
@@ -97,7 +98,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_marginTop="20dp">
@@ -159,8 +160,107 @@
                 android:visibility="gone" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/addrecurringbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add this as recurring transaction"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/add_24"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
+
+            <!-- Recurring form container (start hidden) -->
+            <LinearLayout
+                android:id="@+id/layoutRecurringForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Frequency"
+                    android:paddingStart="8dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp" />
+
+                <RadioGroup
+                    android:id="@+id/recurringFrequencyGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <RadioButton
+                        android:id="@+id/rbDaily"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:text="Daily" />
+
+                    <RadioButton
+                        android:id="@+id/rbWeekly"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:text="Weekly" />
+
+                    <RadioButton
+                        android:id="@+id/rbMonthly"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:text="Monthly" />
+
+                    <RadioButton
+                        android:id="@+id/rbYearly"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:text="Yearly" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="End Date (optional)"
+                    android:paddingStart="8dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/enddateedittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="YYYY-MM-DD"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_input" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
+
+
 
 
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvInfoPie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top Categroies\n(Month Wise)"
+            android:textSize="22sp"
+            android:letterSpacing=".05"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieCategoryThisMonth"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</FrameLayout>

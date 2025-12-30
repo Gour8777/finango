@@ -41,7 +41,7 @@ class ProfileSetup : AppCompatActivity() {
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spinnerIncome.adapter = adapter
+            binding.spinnerBudget.adapter = adapter
         }
 
         ArrayAdapter.createFromResource(
@@ -52,7 +52,7 @@ class ProfileSetup : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerNationality.adapter = adapter
         }
-        binding.spinnerIncome.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinnerBudget.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>, view: View?, position: Int, id: Long
             ) {
@@ -102,13 +102,13 @@ class ProfileSetup : AppCompatActivity() {
         if (monStr.length != 2) { show("Enter month as MM"); enableBtn(); return@with }
         if (yrStr.length  != 4) { show("Enter year as YYYY"); enableBtn(); return@with }
 
-        val income = spinnerIncome.selectedItem?.toString()?.trim().orEmpty()
+        val budget = spinnerBudget.selectedItem?.toString()?.trim().orEmpty()
         val nationality = spinnerNationality.selectedItem?.toString()?.trim().orEmpty()
 
         if (email.isEmpty()) { show("Email not found. Please re-login."); enableBtn(); return@with }
         if (name.isEmpty()) { show("Please enter your name"); enableBtn(); return@with }
         if (goals.isEmpty()) { show("Please enter your goals"); enableBtn(); return@with }
-        if (income.isEmpty() || income.equals("Select income", true)) {
+        if (budget.isEmpty() || budget.equals("Select income", true)) {
             show("Please select your income"); enableBtn(); return@with
         }
         if (nationality.isEmpty() || nationality.equals("Select nationality", true)) {
@@ -133,7 +133,7 @@ class ProfileSetup : AppCompatActivity() {
             "email" to email,
             "name" to name,
             "goals" to goals,
-            "income" to income,
+            "budget" to budget,
             "dob" to dob,
             "nationality" to nationality,
             "profileCompleted" to true,

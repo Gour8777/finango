@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootnoticard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <!-- Row: title + time -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/notititle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="4dp"
+                android:text="Notification title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#111" />
+
+            <TextView
+                android:id="@+id/notitime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:30"
+                android:padding="4dp"
+                android:textSize="12sp"
+                android:textColor="#777" />
+        </LinearLayout>
+
+        <!-- Body -->
+        <TextView
+            android:id="@+id/notibody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="₹5000 • Groceries • tap to review"
+            android:textSize="14sp"
+            android:padding="4dp"
+            android:textColor="#444"
+            android:layout_marginTop="4dp" />
+
+        <!-- 🔽 EXPANDABLE AREA FOR ANOMALY ONLY -->
+        <LinearLayout
+            android:id="@+id/layoutAnomalyDetails"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="4dp"
+            android:paddingTop="8dp"
+            android:visibility="gone"
+          >
+
+            <TextView
+                android:id="@+id/tvAnomalyReasons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Amount is higher than usual\n• Unusual time"
+                android:textSize="13sp"
+                android:textColor="#555" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnAnomalyYes"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Yes, this was me"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFF"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btnAnomalyNo"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="No, not me"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#E53935"
+                    android:textColor="#FFF"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -121,6 +121,7 @@
                                     android:layout_margin="5dp"
                                     android:orientation="vertical">
 
+
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -182,17 +183,17 @@
 
                                             <!-- VIEW MODE -->
                                             <TextView
-                                                android:id="@+id/tvIncome"
+                                                android:id="@+id/tvBudget"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:text="Income"
+                                                android:text="Budget"
                                                 android:textSize="16sp"
                                                 android:textColor="@color/black"
                                                 android:padding="10dp" />
 
                                             <!-- EDIT MODE -->
                                             <com.google.android.material.textfield.TextInputLayout
-                                                android:id="@+id/tilIncome"
+                                                android:id="@+id/tilBudget"
                                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
@@ -200,10 +201,10 @@
                                                 app:startIconTint="@color/black">
 
                                                 <AutoCompleteTextView
-                                                    android:id="@+id/ddIncome"
+                                                    android:id="@+id/ddBudget"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
-                                                    android:hint="Select income"
+                                                    android:hint="Select budget"
                                                     android:inputType="none" />
                                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -301,6 +302,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/ccll"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="5dp"
@@ -329,6 +331,7 @@
 
                                     </LinearLayout>
                                     <LinearLayout
+                                        android:id="@+id/settingll"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"
@@ -351,6 +354,7 @@
 
                                     </LinearLayout>
                                     <LinearLayout
+                                        android:id="@+id/faqll"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"
@@ -373,6 +377,7 @@
 
                                     </LinearLayout>
                                     <LinearLayout
+                                        android:id="@+id/helpll"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"

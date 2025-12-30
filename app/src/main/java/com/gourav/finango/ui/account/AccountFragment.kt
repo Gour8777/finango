@@ -15,7 +15,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.text.method.TextKeyListener
 import androidx.core.view.isVisible
+import com.gourav.finango.ui.addtransaction.AddTransaction
+import com.gourav.finango.ui.ccrecommedation.CCRecommendation
+import com.gourav.finango.ui.faq.faqscreen
+import com.gourav.finango.ui.helpcentre.Helpcentrescreen
 import com.gourav.finango.ui.login.LoginScreen
+import com.gourav.finango.ui.settings.Settings
 
 class AccountFragment : Fragment() {
 
@@ -47,13 +52,28 @@ class AccountFragment : Fragment() {
         incomeOptions = buildIncomeRanges()
         nationalityOptions = buildNationalityList()
 
-        binding.ddIncome.setAdapter(
+        binding.ddBudget.setAdapter(
             ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, incomeOptions)
         )
         binding.ddNationality.setAdapter(
             ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, nationalityOptions)
         )
-
+        binding.settingll.setOnClickListener {
+            val intent = Intent(context, Settings::class.java)
+            startActivity(intent)
+        }
+        binding.faqll.setOnClickListener {
+            val intent = Intent(context, faqscreen::class.java)
+            startActivity(intent)
+        }
+        binding.helpll.setOnClickListener {
+            val intent = Intent(context, Helpcentrescreen::class.java)
+            startActivity(intent)
+        }
+        binding.ccll.setOnClickListener {
+            val intent = Intent(context, CCRecommendation::class.java)
+            startActivity(intent)
+        }
         // Load profile
         loadUserData()
 
@@ -106,8 +126,8 @@ class AccountFragment : Fragment() {
                 if (doc.exists()) {
                     val name = doc.getString("name").orEmpty()
                     val email = doc.getString("email").orEmpty()
-                    val goal = doc.getString("goal").orEmpty()   // keep your field name
-                    val income = doc.getString("income").orEmpty()
+                    val goal = doc.getString("goals").orEmpty()   // keep your field name
+                    val budget = doc.getString("budget").orEmpty()
                     val nationality = doc.getString("nationality").orEmpty()
 
                     binding.usernameheader.text = if (name.isNotBlank()) "Hi, $name" else "Hi"
@@ -115,10 +135,10 @@ class AccountFragment : Fragment() {
                     binding.username.setText(name)
                     binding.usergoal.setText(goal)
 
-                    binding.tvIncome.text = income.ifBlank { "Income not set" }
+                    binding.tvBudget.text = budget.ifBlank { "Budget not set" }
                     binding.tvNationality.text = nationality.ifBlank { "Nationality not set" }
 
-                    binding.ddIncome.setText(matchClosest(incomeOptions, income), false)
+                    binding.ddBudget.setText(matchClosest(incomeOptions, budget), false)
                     binding.ddNationality.setText(matchClosest(nationalityOptions, nationality), false)
 
                     switchToEditMode(false)
@@ -150,8 +170,8 @@ class AccountFragment : Fragment() {
 
         val updatedData = mapOf(
             "name" to binding.username.text.toString().trim(),
-            "goal" to binding.usergoal.text.toString().trim(),
-            "income" to binding.ddIncome.text.toString().trim().ifBlank { binding.tvIncome.text.toString() },
+            "goals" to binding.usergoal.text.toString().trim(),
+            "budget" to binding.ddBudget.text.toString().trim().ifBlank { binding.tvBudget.text.toString() },
             "nationality" to binding.ddNationality.text.toString().trim().ifBlank { binding.tvNationality.text.toString() }
         )
 
@@ -159,7 +179,7 @@ class AccountFragment : Fragment() {
             .update(updatedData)
             .addOnSuccessListener {
                 if (!isAdded) return@addOnSuccessListener
-                binding.tvIncome.text = updatedData["income"]
+                binding.tvBudget.text = updatedData["budget"]
                 binding.tvNationality.text = updatedData["nationality"]
                 switchToEditMode(false)
                 isEditing = false
@@ -180,8 +200,8 @@ class AccountFragment : Fragment() {
         setEditable(binding.usergoal, enable)
 
         // Income + Nationality: swap View <-> Dropdown
-        binding.tvIncome.visibility = if (enable) View.GONE else View.VISIBLE
-        binding.tilIncome.visibility = if (enable) View.VISIBLE else View.GONE
+        binding.tvBudget.visibility = if (enable) View.GONE else View.VISIBLE
+        binding.tilBudget.visibility = if (enable) View.VISIBLE else View.GONE
 
         binding.tvNationality.visibility = if (enable) View.GONE else View.VISIBLE
         binding.tilNationality.visibility = if (enable) View.VISIBLE else View.GONE

@@ -154,9 +154,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:text="Log In"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="#3366FF"
                 android:textColor="@android:color/white"
                 android:textAllCaps="false" />
@@ -201,6 +201,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Or login with"
+            android:visibility="gone"
             android:textColor="#AAAAAA"
             android:layout_marginTop="16dp" />
 
@@ -209,6 +210,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:visibility="gone"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/bg_social_default"

@@ -96,14 +96,24 @@ class SelectListFragment : DialogFragment() {
     // ------- Sample data (replace with your own if needed) -------
 
     private fun categoryItems(): List<SelectItem> = listOf(
-        SelectItem(name = "Food & Drinks", icon = R.drawable.foodanddrink),
+        SelectItem(name = "General",   icon = R.drawable.transaction),
         SelectItem(name = "Groceries",   icon = R.drawable.grocery),
-
+        SelectItem(name = "Food & Drinks", icon = R.drawable.foodanddrink),
+        SelectItem(name = "Furniture",   icon = R.drawable.furniture),
+        SelectItem(name = "Rent",   icon = R.drawable.rent),
+        SelectItem(name = "Water",   icon = R.drawable.water),
+        SelectItem(name = "Gifts",   icon = R.drawable.gifts),
+        SelectItem(name = "Medical",   icon = R.drawable.medical),
+        SelectItem(name = "Maintenance",   icon = R.drawable.maintenance),
+        SelectItem(name = "Travel",   icon = R.drawable.travel),
+        SelectItem(name = "Movies",   icon = R.drawable.movies),
+        SelectItem(name = "Electricity",   icon = R.drawable.electricity),
+        SelectItem(name = "Donation",   icon = R.drawable.donation),
     )
 
     private fun currencyItems(): List<SelectItem> = listOf(
         SelectItem(name = "Indian Rupee", code = "INR", icon = R.drawable.rupee),
-        SelectItem(name = "US Dollar",    code = "USD", icon = R.drawable.dollar),
+        //SelectItem(name = "US Dollar",    code = "USD", icon = R.drawable.dollar),
     )
 }
 

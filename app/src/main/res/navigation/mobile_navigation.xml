@@ -39,7 +39,28 @@
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.gourav.finango.ui.notifications.NotificationsFragment"
-        android:label="Notifications" />
+        android:label="Notifications" >
 
+<!--        &lt;!&ndash; 🔴 New action: Notifications -> AnomalyDetail &ndash;&gt;-->
+<!--        <action-->
+<!--            android:id="@+id/action_notificationsFragment_to_anomalyDetailFragment"-->
+<!--            app:destination="@id/anomalyDetailFragment" />-->
+    </fragment>
+
+    <!-- 🔴 New fragment for anomaly details -->
+<!--    <fragment-->
+<!--        android:id="@+id/anomalyDetailFragment"-->
+<!--        android:name="com.gourav.finango.ui.anomaly.AnomalyDetail"-->
+<!--        android:label="Suspicious transaction"-->
+<!--        tools:layout="@layout/fragment_anomaly_detail">-->
+
+<!--        &lt;!&ndash; Optional Safe Args &ndash;&gt;-->
+<!--        <argument-->
+<!--            android:name="notificationId"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="transactionId"-->
+<!--            app:argType="string" />-->
+<!--    </fragment>-->
 
 </navigation>

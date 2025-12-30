@@ -6,17 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.gourav.finango.databinding.FragmentHomeBinding
-import com.google.android.material.button.MaterialButton
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.Timestamp
@@ -24,8 +21,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.gourav.finango.R
+import com.gourav.finango.ui.TransactionDetails.TransactionDetailActivity
 import com.gourav.finango.ui.addtransaction.AddTransaction
-import com.gourav.finango.ui.notifications.NotificationsFragment
 
 import com.gourav.finango.ui.wallet.TransactionAdapter
 import com.gourav.finango.ui.wallet.Transactionget
@@ -40,11 +37,11 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: TransactionAdapter
-    private lateinit var transactionList: MutableList<Transactionget>
+
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
-
+    private lateinit var adapter: TransactionAdapter
+    private val transactionList = mutableListOf<Transactionget>()
     private lateinit var tvBalance: TextView
     private lateinit var incomeText: TextView
     private lateinit var expenseText: TextView
@@ -68,6 +65,9 @@ class HomeFragment : Fragment() {
         tvGreeting = view.findViewById(R.id.homegreeting)
         tvUsername = view.findViewById(R.id.homeusername)
         tvGreeting.text = currentGreeting()
+        val viewPager = view.findViewById<ViewPager2>(R.id.homeViewPager)
+        val vpadapter = HomePagerAdapter(this)
+        viewPager.adapter = vpadapter
         loadUserName()
 
 
@@ -76,8 +76,21 @@ class HomeFragment : Fragment() {
         incomeText = view.findViewById(R.id.incometext)
         expenseText = view.findViewById(R.id.expensetext)
         loadTotals()
-        transactionList = mutableListOf()
-        adapter = TransactionAdapter(requireContext(), transactionList)
+        adapter = TransactionAdapter(requireContext(), transactionList) { item ->
+            val intent = Intent(requireContext(), TransactionDetailActivity::class.java).apply {
+                putExtra("documentId", item.documentId)
+                putExtra("date",        item.date)
+                putExtra("amount",      item.amount)
+                putExtra("type",        item.type)
+                putExtra("category",    item.category)
+                putExtra("description", item.description)
+                putExtra("timestampSeconds", item.timestamp?.seconds ?: 0L)
+                putExtra("timestampNanos",   item.timestamp?.nanoseconds ?: 0)
+                // putExtra("currency", item.currency) // if you have it
+            }
+            startActivity(intent)
+        }
+
 
         binding.rvTransactions.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTransactions.adapter = adapter
@@ -87,6 +100,11 @@ class HomeFragment : Fragment() {
             // Find BottomNavigationView in your Activity
             val bottomNav = activity?.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view)
             bottomNav?.selectedItemId = R.id.navigation_wallet
+        }
+        binding.seeallstatistics.setOnClickListener {
+            // Find BottomNavigationView in your Activity
+            val bottomNav = activity?.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.nav_view)
+            bottomNav?.selectedItemId = R.id.navigation_analytics
         }
         binding.emptyStateLayout.setOnClickListener {
             val intent= Intent(context, AddTransaction::class.java)

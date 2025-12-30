@@ -16,6 +16,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.gourav.finango.databinding.ActivityMainBinding
 import com.gourav.finango.ui.login.LoginScreen
 import com.gourav.finango.ui.profile.ProfileSetup
+import com.gourav.finango.workers.debugRunReminderNow
+import com.gourav.finango.workers.runRecurringWorkerNow
+import com.gourav.finango.workers.scheduleRecurringReminder
+import com.gourav.finango.workers.scheduleRecurringWorker
+import com.gourav.finango.workers.triggerImmediateRecurringReminderOncePerDay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
@@ -32,6 +37,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         enableEdgeToEdge()
+
+        val user = auth.currentUser
+        if (user != null) {
+            //only if logged in
+            scheduleRecurringWorker(this)
+            scheduleRecurringReminder(this)
+            triggerImmediateRecurringReminderOncePerDay(this)
+            runRecurringWorkerNow(this, user.uid)
+//           debugRunReminderNow(this)
+        }
+
+
+        // (2) run once now so due DAILY/WEEKLY/MONTHLY items fire immediately
+        auth.currentUser?.uid?.let { uid ->
+            runRecurringWorkerNow(this, uid)
+        }
         // 1) Show loader, hide content at start
         binding.progressOverlay.isVisible = true
         binding.contentRoot.isVisible = false
@@ -40,6 +61,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             routeUser()
         }
+    }
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)              // keep latest intent
+        if (navReady) handleDeepSelect(intent)
     }
 
     private suspend fun routeUser() {
@@ -67,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.progressOverlay.isVisible = false
         binding.contentRoot.isVisible = true
+        handleDeepSelect(intent)
     }
 
     private fun initBottomNav() {
@@ -84,6 +111,13 @@ class MainActivity : AppCompatActivity() {
         // setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+    private fun handleDeepSelect(intent: Intent?) {
+        val dest = intent?.getIntExtra("navigate_to_fragment", -1) ?: -1
+        if (dest != -1) {
+            binding.navView.selectedItemId = dest
+        }
+    }
+
 
     private fun <T : Activity> startClear(cls: Class<T>) {
         startActivity(Intent(this, cls).apply {
